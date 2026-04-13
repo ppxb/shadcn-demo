@@ -4,6 +4,10 @@
   "semi": false,
   "trailingComma": "none",
   "singleQuote": true,
-  "sortTailwindcss": {},
+  "sortTailwindcss": {
+    "stylesheet": "./src/styles/globals.css",
+    "functions": ["clsx", "cn"],
+    "preserveWhitespace": true
+  },
   "ignorePatterns": ["node_modules"]
 }
