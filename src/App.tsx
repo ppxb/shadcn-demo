@@ -8,11 +8,12 @@ import {
   RiTwitterXFill
 } from '@remixicon/react'
 import { ArrowUpRight, CloudDownload, ExternalLink, Search, Settings, Star } from 'lucide-react'
+import { HalftoneBackground } from '@/components/halftone-bg'
 
 function App() {
   return (
     <div className="flex h-screen flex-col items-center justify-center gap-8 p-12">
-      <div className="text-4xl font-bold">BUTTONS</div>
+      <div className="text-4xl">All changes, fixes, and updates</div>
       <div className="grid grid-cols-6 gap-4">
         <div className="flex flex-col items-start gap-2 rounded-2xl border p-4">
           <div className="text-sm text-muted-foreground">Default button</div>
@@ -124,6 +125,31 @@ function App() {
               456
             </span>
           </Button>
+        </div>
+      </div>
+      <div className="relative w-80 space-y-0 border-t border-foreground/10 pt-4">
+        <HalftoneBackground />
+        <div className="relative flex items-baseline justify-between border-b border-dashed border-foreground/6 py-1.5 last:border-0">
+          <span className="text-xs tracking-wider text-foreground/70 uppercase dark:text-foreground/50">
+            Framework
+          </span>
+          <span className="font-mono text-xs text-foreground/85 dark:text-foreground/75">
+            Open source
+          </span>
+        </div>
+
+        <div className="relative flex items-baseline justify-between border-b border-dashed border-foreground/6 py-1.5 last:border-0">
+          <span className="text-xs tracking-wider text-foreground/70 uppercase dark:text-foreground/50">
+            Contributors
+          </span>
+          <span className="font-mono text-xs text-foreground/85 dark:text-foreground/75">823+</span>
+        </div>
+
+        <div className="relative flex items-baseline justify-between border-b border-dashed border-foreground/6 py-1.5 last:border-0">
+          <span className="text-xs tracking-wider text-foreground/70 uppercase dark:text-foreground/50">
+            License
+          </span>
+          <span className="font-mono text-xs text-foreground/85 dark:text-foreground/75">MIT</span>
         </div>
       </div>
     </div>
