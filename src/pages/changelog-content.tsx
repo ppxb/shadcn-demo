@@ -7,6 +7,7 @@ import { cn } from '@/lib/utils'
 import { CodeBlock } from '@/components/ui/code-block'
 
 interface ReleaseMessage {
+  id: string
   tag: string
   title: string
   content: string
@@ -190,7 +191,8 @@ export function ChangelogContent({ messages }: { messages: ReleaseMessage[] }) {
       {messages.map(release => (
         <div
           key={release.tag}
-          className="group border-b border-dashed px-5 py-16 first:pt-8 sm:px-6 lg:px-8"
+          id={release.id}
+          className="group scroll-mt-24 border-b border-dashed px-5 py-16 first:pt-8 sm:px-6 lg:px-8"
         >
           {/* Release header */}
           <div className="mb-4 flex items-baseline">
