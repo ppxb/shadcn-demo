@@ -18,11 +18,11 @@ export default function ChangelogPage() {
   const [releases, setReleases] = useState<GithubRelease[]>([])
 
   useEffect(() => {
-    fetch('https://api.github.com/repos/NextDoc4j/nextdoc4j/releases', {
+    fetch('https://api.github.com/repos/better-auth/better-auth/releases', {
       headers: {
         Accept: 'application/vnd.github.v3+json',
-        ...(process.env.GITHUB_TOKEN && {
-          Authorization: `Bearer ${process.env.GITHUB_TOKEN}`
+        ...(import.meta.env.VITE_GITHUB_TOKEN && {
+          Authorization: `Bearer ${import.meta.env.VITE_GITHUB_TOKEN}`
         })
       }
     })
