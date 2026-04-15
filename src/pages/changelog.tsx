@@ -75,19 +75,20 @@ export default function ChangelogPage() {
 
   return (
     <div className="flex min-h-dvh flex-col pt-14 lg:flex-row lg:pt-0">
+      {/* Left panel — sticky */}
       <div className="relative hidden w-full shrink-0 overflow-clip border-b border-foreground/6 px-5 sm:px-6 lg:sticky lg:top-0 lg:block lg:h-dvh lg:w-[30%] lg:border-r lg:border-b-0 lg:px-10">
         <HalftoneBackground />
         <div className="relative flex w-full flex-col justify-center pt-6 pb-6 md:pt-10 lg:h-full lg:pb-0">
           <div className="space-y-1">
             <div className="flex items-center gap-1.5">
-              <HistoryIcon className="size-3.5 text-foreground/60" />
+              <HistoryIcon className="size-3.5" />
               <span className="text-sm text-foreground/60">Changelog</span>
             </div>
             <h1 className="text-2xl leading-tight tracking-tight text-neutral-800 md:text-3xl xl:text-4xl dark:text-neutral-200">
               All changes, fixes, and updates
             </h1>
             <p className="max-w-60 text-sm leading-relaxed text-foreground/70 dark:text-foreground/50">
-              Every release shipped to NextDoc4j, straight from GitHub.
+              Every release shipped to Better Auth, straight from GitHub.
             </p>
           </div>
 
@@ -104,7 +105,7 @@ export default function ChangelogPage() {
 
           <div className="flex items-center gap-3 pt-4">
             <a
-              href="https://github.com/NextDoc4j/nextdoc4j/releases"
+              href="https://github.com/better-auth/better-auth/releases"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 font-mono text-[12px] tracking-wider text-foreground/70 uppercase transition-colors hover:text-foreground/80 dark:text-foreground/50"
@@ -125,7 +126,46 @@ export default function ChangelogPage() {
         </div>
       </div>
 
-      <ChangelogContent messages={messages ?? []} />
+      {/* Right panel — releases */}
+      <div className="flex w-full flex-col lg:w-[70%]">
+        {/* Mobile header */}
+        <div className="relative overflow-hidden border-b border-foreground/6 px-5 sm:px-6 lg:hidden">
+          <HalftoneBackground />
+          <div className="relative space-y-2 py-16">
+            <div className="flex items-center gap-1.5">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="0.9em"
+                height="0.9em"
+                viewBox="0 0 24 24"
+                className="text-foreground/60"
+                aria-hidden="true"
+              >
+                <path
+                  fill="currentColor"
+                  d="M13 3a9 9 0 0 0-9 9H1l3.89 3.89l.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7s-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42A8.954 8.954 0 0 0 13 21a9 9 0 0 0 0-18zm-1 5v5l4.28 2.54l.72-1.21l-3.5-2.08V8H12z"
+                />
+              </svg>
+              <span className="text-sm text-foreground/60">Changelog</span>
+            </div>
+            <h1 className="text-2xl leading-tight tracking-tight text-neutral-800 md:text-3xl xl:text-4xl dark:text-neutral-200">
+              All changes, fixes, and updates
+            </h1>
+            <p className="text-sm leading-relaxed text-foreground/70 dark:text-foreground/50">
+              Every release shipped to Better Auth, straight from GitHub.
+            </p>
+          </div>
+        </div>
+
+        <div className="px-5 pt-5 lg:p-8 lg:pt-20">
+          <h2 className="flex items-center gap-3 font-mono text-sm text-neutral-900 sm:text-[15px] dark:text-neutral-100">
+            CHANGELOG
+            <span className="h-px flex-1 bg-foreground/15" />
+          </h2>
+        </div>
+
+        <ChangelogContent messages={messages ?? []} />
+      </div>
     </div>
   )
 }

@@ -3,8 +3,8 @@ import { useRef, useState } from 'react'
 import Markdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 
-import { DynamicCodeBlock } from '@/components/ui/dynamic-code-block'
 import { cn } from '@/lib/utils'
+import { CodeBlock } from '@/components/ui/code-block'
 
 interface ReleaseMessage {
   tag: string
@@ -133,23 +133,12 @@ function MarkdownContent({ content }: { content: string }) {
           />
         ),
         pre: ({ children }) => {
-          const codeEl = children as React.ReactElement<{
-            className?: string
-            children?: string
-          }>
-          const className = codeEl?.props?.className || ''
-          const lang = className.replace(/language-/, '') || 'text'
+          const codeEl = children as React.ReactElement<{ className?: string; children?: string }>
+          const lang = codeEl?.props?.className?.replace(/language-/, '') || 'text'
           const code =
             typeof codeEl?.props?.children === 'string' ? codeEl.props.children.trim() : ''
-          return (
-            <div className="my-4">
-              <DynamicCodeBlock
-                lang={lang}
-                code={code}
-                codeblock={{ className: 'border rounded-md' }}
-              />
-            </div>
-          )
+
+          return <CodeBlock lang={lang} code={code} className="my-4" />
         },
         code: ({ className, children, ...props }) => {
           if (className?.includes('language-')) {
