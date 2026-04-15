@@ -21,7 +21,9 @@ export default function ChangelogPage() {
     fetch('https://api.github.com/repos/NextDoc4j/nextdoc4j/releases', {
       headers: {
         Accept: 'application/vnd.github.v3+json',
-        Authorization: `Bearer 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`
+        ...(process.env.GITHUB_TOKEN && {
+          Authorization: `Bearer ${process.env.GITHUB_TOKEN}`
+        })
       }
     })
       .then(res => res.json())
